@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:a4j="http://richfaces.org/a4j">
+
+<h:head>
+    <meta charset="UTF-8"/>
+    <title>Cadastrar Usuário</title>
+</h:head>
+<body>
+<ui:fragment id="incluirListar">
+    <br/>
+    <br/>
+    <hr/>
+    <h:form>
+
+        <h:panelGrid columns="2">
+            <h:outputLabel value="Login:"/>
+            <h:inputText value="#{usuarioBean.usuario.nomeUsuario}"/>
+
+            <h:outputLabel value="Senha:"/>
+            <h:inputSecret value="#{usuarioBean.usuario.senha}"/>
+
+            <h:commandButton value="Login" action="#{usuarioBean.login}"/>
+            <h:column/>
+
+            <h:column/>
+            <h:column/>
+
+            <h:outputLabel value="Ainda não tem cadastro?"/>
+            <h:commandButton value="Cadastrar!" action="#{usuarioBean.cadastrar}"/>
+
+        </h:panelGrid>
+
+    </h:form>
+</ui:fragment>
+</body>
+</html>

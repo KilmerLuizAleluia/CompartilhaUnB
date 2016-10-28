@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:a4j="http://richfaces.org/a4j">
+
+<h:head>
+    <meta charset="UTF-8"/>
+    <title>Compartilha UnB</title>
+</h:head>
+<body>
+<style type="text/css" scoped="scoped">
+    #menu ul li {
+        display: inline;
+    }
+</style>
+<h:form>
+    <nav id="menu" style="float: right;">
+        <ul>
+            <li><h:commandLink value="Home" action="#{usuarioBean.welcomePage}"/></li>
+            <li><h:outputText value="Olá, #{usuarioBean.usuario.nome}"/></li>
+            <li><h:commandLink value="Sair" action="#{usuarioBean.sair}"/></li>
+        </ul>
+    </nav>
+</h:form>
+
+<ui:insert name="body"/>
+
+</body>
+</html>

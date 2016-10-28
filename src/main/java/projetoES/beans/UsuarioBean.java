@@ -43,8 +43,34 @@ public class UsuarioBean {
         inicializarDados(false);
     }
 
-    private String welcomePage() {
+    public String login(){
+        usuario = usuarioRepository.findByNomeUsuarioAndSenha(usuario.getNomeUsuario(), usuario.getSenha());
+        if (usuario != null) {
+            return welcomePage();
+        }
+        return null;
+    }
+
+    public String cadastrar(){
+        inicializarDados(true);
+        return cadastrarPage();
+    }
+
+    public String sair(){
+        inicializarDados(true);
+        return loginPage();
+    }
+
+    public String welcomePage() {
         return "/welcome-page.xhtml?faces-redirect=true";
+    }
+
+    private String cadastrarPage() {
+        return "/manterusuario/incluirAlterar.xhtml?faces-redirect=true";
+    }
+
+    private String loginPage() {
+        return "/login.xhtml";
     }
 
     public Usuario getUsuario() {
