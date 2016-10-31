@@ -61,23 +61,25 @@
                         <a4j:commandButton value="Adicionar" action="#{usuarioBean.adicionarDisciplina}"
                                            render="listaDisciplinas"/>
 
-                        <h:dataTable id="listaDisciplinas" rendered="#{not empty usuarioBean.usuario.disciplinas}"
-                                     value="#{usuarioBean.usuario.disciplinas}" var="disciplina">
-                            <h:column>
-                                <f:facet name="header">Nome</f:facet>
-                                <h:outputText value="#{disciplina.nome}"/>
-                            </h:column>
+                        <a4j:region id="listaDisciplinas">
+                            <h:dataTable rendered="#{not empty usuarioBean.usuario.disciplinas}"
+                                         value="#{usuarioBean.usuario.disciplinas}" var="disciplina">
+                                <h:column>
+                                    <f:facet name="header">Nome</f:facet>
+                                    <h:outputText value="#{disciplina.nome}"/>
+                                </h:column>
 
-                            <h:column>
-                                <f:facet name="header">Departamento</f:facet>
-                                <h:outputText value="#{disciplina.departamento}"/>
-                            </h:column>
+                                <h:column>
+                                    <f:facet name="header">Departamento</f:facet>
+                                    <h:outputText value="#{disciplina.departamento}"/>
+                                </h:column>
 
-                            <h:column>
-                                <f:facet name="header"/>
-                                <a4j:commandButton value="Remover Disciplina"/>
-                            </h:column>
-                        </h:dataTable>
+                                <h:column>
+                                    <f:facet name="header"/>
+                                    <a4j:commandButton value="Remover Disciplina"/>
+                                </h:column>
+                            </h:dataTable>
+                        </a4j:region>
                     </h:panelGrid>
                 </h:panelGrid>
 

@@ -1,3 +1,3 @@
-INSERT INTO USUARIO  (ID, CURSO, EMAIL, GENERO, NOME, NOME_USUARIO, SENHA, SOBRENOME, UNIVERSIDADE) VALUES  (1, 'CiC', 'kilmer@email', 'M', 'Kilmer Luiz', 'kilmer', 'senha', 'Aleluia', 'UnB')
+INSERT INTO USUARIO  (ID, CURSO, EMAIL, GENERO, NOME, NOME_USUARIO, SENHA, SOBRENOME, UNIVERSIDADE) VALUES  (1000000, 'CiC', 'kilmer@email', 'M', 'Kilmer Luiz', 'kilmer', 'senha', 'Aleluia', 'UnB')
 INSERT INTO USUARIO  (ID, CURSO, EMAIL, GENERO, NOME, NOME_USUARIO, SENHA, SOBRENOME, UNIVERSIDADE) VALUES  (2, 'CiC', 'iure@email', 'M', 'Iure', 'iure', 'senha', 'Brandao', 'UnB')
 INSERT INTO USUARIO  (ID, CURSO, EMAIL, GENERO, NOME, NOME_USUARIO, SENHA, SOBRENOME, UNIVERSIDADE) VALUES  (3, 'CiC', 'victor@email', 'M', 'Victor', 'victor', 'senha', 'Dantas', 'UnB')

@@ -1,33 +1,28 @@
 package projetoES.model.entities;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table
-public class Pergunta {
+public class Resposta {
 
-    private static final String SEQUENCE = "SQ_PERGUNTA";
+    private static final String SEQUENCE = "SQ_RESPOSTA";
 
     @Id
     @GeneratedValue(generator = SEQUENCE, strategy = GenerationType.SEQUENCE)
-    @SequenceGenerator(sequenceName = SEQUENCE, name = SEQUENCE, initialValue = 1, allocationSize = 1)
+    @SequenceGenerator(allocationSize = 1, initialValue = 1, name = SEQUENCE, sequenceName = SEQUENCE)
     private Integer id;
-
-    @Column(nullable = false)
-    private String titulo;
 
     @Column(nullable = false, length = 10000)
     private String descricao;
 
-
-    private Integer numeroLikes;
-    private Integer numeroDeslikes;
+    private Integer numeroLikes = 0;
+    private Integer numeroDeslikes = 0;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
-    private Disciplina disciplina;
+    private Pergunta pergunta;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     private Usuario usuario;
 
     public Integer getId() {
@@ -36,14 +31,6 @@ public class Pergunta {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public String getTitulo() {
-        return titulo;
-    }
-
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
     }
 
     public String getDescricao() {
@@ -78,12 +65,12 @@ public class Pergunta {
         this.numeroDeslikes++;
     }
 
-    public Disciplina getDisciplina() {
-        return disciplina;
+    public Pergunta getPergunta() {
+        return pergunta;
     }
 
-    public void setDisciplina(Disciplina disciplina) {
-        this.disciplina = disciplina;
+    public void setPergunta(Pergunta pergunta) {
+        this.pergunta = pergunta;
     }
 
     public Usuario getUsuario() {
