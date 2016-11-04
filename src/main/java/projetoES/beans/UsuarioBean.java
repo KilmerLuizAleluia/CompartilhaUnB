@@ -65,6 +65,10 @@ public class UsuarioBean {
         return "/welcome-page.xhtml?faces-redirect=true";
     }
 
+    public String getWelcomePage() {
+        return "/welcome-page.xhtml?faces-redirect=true";
+    }
+
     private String cadastrarPage() {
         return "/manterusuario/incluirAlterar.xhtml?faces-redirect=true";
     }

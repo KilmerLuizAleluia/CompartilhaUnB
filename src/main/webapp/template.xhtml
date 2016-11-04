@@ -9,10 +9,10 @@
 
 <h:head>
     <meta charset="UTF-8"/>
-    <link rel="stylesheet" href="resources/css/bootstrap.css"/>
-    <link rel="stylesheet" href="resources/css/main.css"/>
-    <script src="resources/js/jquery.min.js"></script>
-    <script src="resources/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="/resources/css/bootstrap.css"/>
+    <link rel="stylesheet" href="/resources/css/main.css"/>
+    <script src="/resources/js/jquery.min.js"></script>
+    <script src="/resources/js/bootstrap.js"></script>
 
     <title>Compartilha UnB</title>
 </h:head>
@@ -26,11 +26,10 @@
     <nav id="menu" class="navbar navbar-default" >
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">Compartilha Unb</a>
+                <h:commandLink styleClass="navbar-brand" value="Compartilha Unb"  action="#{usuarioBean.welcomePage}"/>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li><h:commandLink value="Home" action="#{usuarioBean.welcomePage}"/></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><h:outputText value="#{usuarioBean.usuario.nome}"/> <span class="caret"></span></a>
                         <ul class="dropdown-menu">
