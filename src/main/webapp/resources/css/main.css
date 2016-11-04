@@ -1,0 +1,31 @@
+.login{
+    float: none;
+    margin: 0 auto;
+    width: 80%;
+}
+
+.btn-login{
+    margin-top: 5%;
+    margin-left: 46%;
+}
+
+.btn-cadastro{
+    margin-top: 5%;
+    margin-left: 40%;
+}
+
+.label-cadastro{
+    margin-left: 33%;
+}
+
+.form-login{
+    width: 120%;
+}
+.fundo{
+    background: url('../imagens/fundo.jpg');
+    min-height: 100vh;
+    margin-top: -2%;
+}
+.vertical{
+    padding-top: 50px;
+}

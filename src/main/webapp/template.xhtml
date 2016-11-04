@@ -9,6 +9,11 @@
 
 <h:head>
     <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="resources/css/bootstrap.css"/>
+    <link rel="stylesheet" href="resources/css/main.css"/>
+    <script src="resources/js/jquery.min.js"></script>
+    <script src="resources/js/bootstrap.js"></script>
+
     <title>Compartilha UnB</title>
 </h:head>
 <body>
@@ -18,16 +23,40 @@
     }
 </style>
 <h:form>
-    <nav id="menu" style="float: right;">
-        <ul>
-            <li><h:commandLink value="Home" action="#{usuarioBean.welcomePage}"/></li>
-            <li><h:outputText value="Olá, #{usuarioBean.usuario.nome}"/></li>
-            <li><h:commandLink value="Sair" action="#{usuarioBean.sair}"/></li>
-        </ul>
+    <nav id="menu" class="navbar navbar-default" >
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Compartilha Unb</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><h:commandLink value="Home" action="#{usuarioBean.welcomePage}"/></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><h:outputText value="#{usuarioBean.usuario.nome}"/> <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Perfil</a></li>
+                            <li><h:commandLink value="Sair" action="#{usuarioBean.sair}"/></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </nav>
 </h:form>
+<div class="fundo">
+    <div class="container">
+        <div class="row vertical">
+            <div class="col-md-5 col-md-offset-3">
+                <div class="panel panel-default">
 
-<ui:insert name="body"/>
+                    <div class="panel-body">
+                        <ui:insert name="body"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>
