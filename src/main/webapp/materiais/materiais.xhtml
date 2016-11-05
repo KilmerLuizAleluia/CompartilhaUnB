@@ -1,0 +1,46 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="/template.xhtml"
+                xmlns:a4j="http://richfaces.org/a4j"
+                xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+
+    <ui:define name="body">
+        <div class="col-md-8 centro">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Materiais de disciplinas</h3>
+                </div>
+                <div class="panel-body">
+                    <h:form>
+                        <h:panelGrid columns="4" styleClass="form-group form-perguntas">
+                            <h:inputText styleClass="form-control" value="#{perguntaBean.pergunta.disciplina}" p:placeholder="Localizar material por disciplina"/>
+                            <h:commandLink value="" styleClass="btn btn-default" action="#{perguntaBean.pesquisar}" >
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </h:commandLink>
+                            <h:inputText styleClass="form-control" value="#{perguntaBean.pergunta.descricao}" p:placeholder="Localizar material por descrição"/>
+                            <h:commandLink value="" styleClass="btn btn-default" action="#{perguntaBean.pesquisar}" >
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </h:commandLink>
+                        </h:panelGrid>
+
+                        <h:panelGrid columns="3" styleClass="form-group form-materiais">
+                            <div class="votar-materiais">
+                                <a><span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span></a>
+                                <span class="vote-count-post">6</span>
+                                <a><span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></a>
+                            </div>
+                            <h:inputTextarea styleClass="form-control" readonly="True" value="#{perguntaBean.pergunta.descricao}"></h:inputTextarea>
+                            <h:commandLink value="" styleClass="btn btn-primary btn-download" action="#{perguntaBean.pesquisar}" >
+                                <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
+                            </h:commandLink>
+                        </h:panelGrid>
+                    </h:form>
+
+                </div>
+            </div>
+        </div>
+
+    </ui:define>
+</ui:composition>
