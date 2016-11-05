@@ -16,12 +16,9 @@
 
     <title>Compartilha UnB</title>
 </h:head>
+
 <body>
-<style type="text/css" scoped="scoped">
-    #menu ul li {
-        display: inline;
-    }
-</style>
+
 <h:form>
     <nav id="menu" class="navbar navbar-default" >
         <div class="container-fluid">
@@ -45,14 +42,7 @@
 <div class="fundo">
     <div class="container">
         <div class="row vertical">
-            <div class="col-md-5 col-md-offset-3">
-                <div class="panel panel-default">
-
-                    <div class="panel-body">
-                        <ui:insert name="body"/>
-                    </div>
-                </div>
-            </div>
+                    <ui:insert name="body"/>
         </div>
     </div>
 </div>

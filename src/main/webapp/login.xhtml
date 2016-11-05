@@ -44,21 +44,18 @@
                             <div class="panel-body">
                                 <h:panelGrid columns="2" class="login">
 
-
-                                    <h:outputLabel  class="col-sm-2" value="Login:"/>
+                                    <h:outputLabel styleClass="col-sm-2" value="Login:"/>
                                     <div class="col-lg-10">
-                                        <h:inputText class="form-control form-login" value="#{usuarioBean.usuario.nomeUsuario}"/>
+                                        <h:inputText styleClass="form-control form-login" value="#{usuarioBean.usuario.nomeUsuario}"/>
                                     </div>
 
-
-
-                                    <h:outputLabel class="col-sm-2" value="Senha:"/>
+                                    <h:outputLabel styleClass="col-sm-2" value="Senha:"/>
                                     <div class="col-sm-10">
-                                        <h:inputSecret class="form-control form-login" value="#{usuarioBean.usuario.senha}"/>
+                                        <h:inputSecret styleClass="form-control form-login" value="#{usuarioBean.usuario.senha}"/>
                                     </div>
 
                                     <div class="col-sm-10">
-                                        <h:commandButton value="Login" action="#{usuarioBean.login}" class="btn btn-success btn-lg btn-login"/>
+                                        <h:commandButton value="Login" action="#{usuarioBean.login}" styleClass="btn btn-success btn-lg btn-login"/>
                                         <h:column/>
                                     </div>
                                     <h:column/>
@@ -66,9 +63,9 @@
 
                                     <div class="form-group">
 
-                                        <h:outputLabel value="Ainda não tem cadastro?" class="label-cadastro"/>
+                                        <h:outputLabel value="Ainda não tem cadastro?" styleClass="label-cadastro"/>
                                         <div class="col-sm-10">
-                                            <h:commandButton value="Cadastrar" action="#{usuarioBean.cadastrar}" class="btn btn-info btn-lg btn-cadastro"/>
+                                            <h:commandButton value="Cadastrar" action="#{usuarioBean.cadastrar}" styleClass="btn btn-info btn-lg btn-cadastro"/>
                                         </div>
                                     </div>
                                 </h:panelGrid>
