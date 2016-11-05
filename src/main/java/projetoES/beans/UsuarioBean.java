@@ -81,6 +81,10 @@ public class UsuarioBean {
         return "/login.xhtml?faces-redirect=true";
     }
 
+    private String forumPage() {
+        return "/forum/forum.xhtml?faces-redirect=true";
+    }
+
     public String sobrePage() {
         return "/sobre.xhtml?faces-redirect=true";
     }

@@ -41,6 +41,10 @@
     margin-left: 1%
 }
 
+.form-materiais{
+    width: 70%;
+}
+
 .fundo{
     background: url('../imagens/fundo.jpg');
     min-height: 100vh;
@@ -51,7 +55,7 @@
     padding-top: 50px;
 }
 
-.votar{
+.votar,.votar-materiais{
     width: 20%;
     text-align: center;
 }
@@ -64,6 +68,11 @@
 .area-pergunta{
     width: 400%;
 }
+
+.btn-download{
+    margin-left: 20%;
+}
+
 .btn-adicionar{
     margin-top: 2%;
     margin-bottom: 5%;
