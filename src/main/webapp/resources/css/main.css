@@ -28,6 +28,11 @@
     width: 100%;
 }
 
+.form-perguntas{
+    width: 100%;
+    margin-top: 3%;
+}
+
 .form-pergunta{
     margin-bottom: 2%;
 }
@@ -44,6 +49,29 @@
 
 .vertical{
     padding-top: 50px;
+}
+
+.votar{
+    width: 20%;
+    text-align: center;
+}
+
+.votar-respostas{
+    width: 10%;
+    text-align: center;
+}
+
+.area-pergunta{
+    width: 400%;
+}
+.btn-adicionar{
+    margin-top: 2%;
+    margin-bottom: 5%;
+    margin-left: 37%;
+}
+
+.btn-responder{
+    margin-left: 30%;
 }
 
 .btn-salvar{
