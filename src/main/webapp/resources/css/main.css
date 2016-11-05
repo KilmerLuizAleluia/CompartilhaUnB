@@ -28,6 +28,10 @@
     width: 100%;
 }
 
+.form-pergunta{
+    margin-bottom: 2%;
+}
+
 .form-dept{
     margin-left: 1%
 }
@@ -51,6 +55,20 @@
 }
 
 .btn-salvar:hover {
+    color: #ffffff;
+    background-color: #194a66;
+    border-color: #194a66;
+}
+
+.btn-perguntar{
+    color: #ffffff;
+    background-color: #247ba0;
+    border-color: #247ba0;
+    margin-left: 38%;
+    margin-top: 5%;
+}
+
+.btn-perguntar:hover {
     color: #ffffff;
     background-color: #194a66;
     border-color: #194a66;
@@ -88,6 +106,11 @@
     color: #ffffff;
     background-color: #194a66;
     border-color: #194a66;
+}
+
+.btn-materiais:focus,.btn-aluno:focus{
+    color: #ffffff;
+    outline: none;
 }
 
 .btn-aluno{

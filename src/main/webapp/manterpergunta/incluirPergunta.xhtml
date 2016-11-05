@@ -1,12 +1,43 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html
-        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-    <title>Title</title>
-</head>
-<body>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="/template.xhtml"
+                xmlns:a4j="http://richfaces.org/a4j">
 
-</body>
-</html>
+    <ui:define name="body">
+        <div class="col-md-8 centro">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Incluir Pergunta</h3>
+                </div>
+                <div class="panel-body">
+                    <h:form>
+                        <h:panelGrid columns="1" styleClass="form-group form-cadastro">
+                            <div class="form-pergunta">
+                                <h:outputText value="Disciplina: "/>
+                                <h:selectOneMenu value="#{perguntaBean.pergunta.disciplina}" styleClass="form-control">
+                                    <f:selectItem itemLabel="Selecione"/>
+                                    <f:selectItems value="#{perguntaBean.disciplinas}" var="dis" itemValue="#{disciplina}" itemLabel="#{dis.nome}"/>
+                                </h:selectOneMenu>
+                            </div>
+                            <div class="form-pergunta">
+
+                                <h:outputText value="Titulo da pergunta: "/>
+                                <h:inputText styleClass="form-control" value="#{perguntaBean.pergunta.titulo}"/>
+                            </div>
+                            <div class="form-pergunta">
+
+                                <h:outputText value="Pergunta: "/>
+                                <h:inputTextarea styleClass="form-control" rows="5" value="#{perguntaBean.pergunta.descricao}"></h:inputTextarea>
+                            </div>
+
+                            <h:commandButton value="Adicionar Pergunta" styleClass="btn btn-perguntar btn-lg" action="#{perguntaBean.salvarPergunta}"/>
+                        </h:panelGrid>
+                    </h:form>
+                </div>
+            </div>
+        </div>
+
+    </ui:define>
+</ui:composition>
