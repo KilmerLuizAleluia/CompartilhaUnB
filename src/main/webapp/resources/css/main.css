@@ -63,3 +63,37 @@
 .tabela{
     margin-top: 10%;
 }
+
+.h3-bemvindo{
+    text-align: center;
+    font-family: verdana;
+    color: #046788;
+}
+
+.menu-inicial{
+    margin-top: 10%;
+}
+
+.btn-materiais{
+    color: #ffffff;
+    background-color: #247ba0;
+    border-color: #247ba0;
+}
+
+.btn-materiais:hover {
+    color: #ffffff;
+    background-color: #194a66;
+    border-color: #194a66;
+}
+
+.btn-aluno{
+    color: #ffffff;
+    background-color:#4b8e7b;
+    border-color:#4b8e7b;
+}
+
+.btn-aluno:hover{
+    color: #ffffff;
+    background-color:#26483e;
+    border-color:#26483e;
+}
