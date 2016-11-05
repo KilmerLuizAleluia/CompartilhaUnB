@@ -90,6 +90,11 @@
     border-color: #194a66;
 }
 
+.btn-materiais:focus,.btn-aluno:focus{
+    color: #ffffff;
+    outline: none;
+}
+
 .btn-aluno{
     color: #ffffff;
     background-color:#4b8e7b;
