@@ -33,7 +33,7 @@ public class UsuarioBean {
         return welcomePage();
     }
 
-    public List<TipoDepartamento> getDepartamentos(){
+    public List<TipoDepartamento> getDepartamentos() {
         return Arrays.asList(TipoDepartamento.values());
     }
 
@@ -43,7 +43,7 @@ public class UsuarioBean {
         inicializarDados(false);
     }
 
-    public String login(){
+    public String login() {
         usuario = usuarioRepository.findByNomeUsuarioAndSenha(usuario.getNomeUsuario(), usuario.getSenha());
         if (usuario != null) {
             return welcomePage();
@@ -51,12 +51,16 @@ public class UsuarioBean {
         return null;
     }
 
-    public String cadastrar(){
+    public void removerDisciplina(Disciplina disciplina){
+        usuario.getDisciplinas().remove(disciplina);
+    }
+
+    public String cadastrar() {
         inicializarDados(true);
         return cadastrarPage();
     }
 
-    public String sair(){
+    public String sair() {
         inicializarDados(true);
         return loginPage();
     }
@@ -69,12 +73,12 @@ public class UsuarioBean {
         return "/welcome-page.xhtml?faces-redirect=true";
     }
 
-    private String cadastrarPage() {
+    public String cadastrarPage() {
         return "/manterusuario/incluirAlterar.xhtml?faces-redirect=true";
     }
 
     private String loginPage() {
-        return "/login.xhtml";
+        return "/login.xhtml?faces-redirect=true";
     }
 
     public String sobrePage() {
