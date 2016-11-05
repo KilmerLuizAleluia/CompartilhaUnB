@@ -38,9 +38,11 @@
                                 <h:inputText styleClass="form-control" value="#{usuarioBean.usuario.email}"/>
                                 <br/>
 
-                                <h:outputLabel value="Senha:" rendered="#{empty usuarioBean.usuario.senha}"/>
-                                <h:inputSecret styleClass="form-control" value="#{usuarioBean.usuario.senha}" rendered="#{empty usuarioBean.usuario.senha}"/>
-                                <br/>
+                                <a4j:outputPanel rendered="#{empty usuarioBean.usuario.senha}">
+                                    <h:outputLabel value="Senha:"/>
+                                    <h:inputSecret styleClass="form-control" value="#{usuarioBean.usuario.senha}"/>
+                                    <br/>
+                                </a4j:outputPanel>
 
                                 <h:outputLabel value="Universidade: "/>
                                 <h:inputText styleClass="form-control" value="#{usuarioBean.usuario.universidade}"/>
