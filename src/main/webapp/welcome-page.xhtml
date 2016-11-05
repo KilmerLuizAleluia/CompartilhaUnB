@@ -4,8 +4,12 @@
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 template="/template.xhtml">
     <ui:define name="body">
-        <body>
-        <h3>Seja bem vindo, #{usuarioBean.usuario.nome}!</h3>
-        </body>
+        <div class="col-md-5 col-md-offset-3">
+        <div class="panel panel-default">
+        <div class="panel-body">
+            <h3>Seja bem-vindo, #{usuarioBean.usuario.nome}!</h3>
+        </div>
+        </div>
+        </div>
     </ui:define>
 </ui:composition>

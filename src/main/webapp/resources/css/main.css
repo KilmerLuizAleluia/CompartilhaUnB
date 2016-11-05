@@ -1,0 +1,65 @@
+.login{
+    float: none;
+    margin: 0 auto;
+    width: 80%;
+}
+.centro{
+    float: none;
+    margin: 0 auto;
+}
+.btn-login{
+    margin-top: 5%;
+    margin-left: 46%;
+}
+
+.btn-cadastro{
+    margin-top: 5%;
+    margin-left: 40%;
+}
+
+.label-cadastro{
+    margin-left: 33%;
+}
+
+.form-login{
+    width: 120%;
+}
+.form-cadastro{
+    width: 100%;
+}
+
+.form-dept{
+    margin-left: 1%
+}
+
+.fundo{
+    background: url('../imagens/fundo.jpg');
+    min-height: 100vh;
+    margin-top: -2%;
+}
+
+.vertical{
+    padding-top: 50px;
+}
+
+.btn-salvar{
+    color: #ffffff;
+    background-color: #247ba0;
+    border-color: #247ba0;
+    margin-left: 41%;
+    margin-top: 5%;
+}
+
+.btn-salvar:hover {
+    color: #ffffff;
+    background-color: #194a66;
+    border-color: #194a66;
+}
+
+.btn-remover{
+    margin-top: 3%;
+}
+
+.tabela{
+    margin-top: 10%;
+}

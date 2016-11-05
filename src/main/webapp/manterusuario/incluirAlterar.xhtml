@@ -4,87 +4,97 @@
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 template="/template.xhtml"
                 xmlns:a4j="http://richfaces.org/a4j">
+
     <ui:define name="body">
-        <ui:fragment id="incluirListar">
-            <br/>
-            <br/>
-            <hr/>
-            <h:form>
+        <div class="col-md-8 centro">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Cadastro de Usuário</h3>
+                </div>
+                <div class="panel-body">
+                    <ui:fragment id="incluirListar">
+                        <h:form>
 
-                <h:panelGrid columns="1">
-                    <h:outputLabel value="Nome: "/>
-                    <h:inputText value="#{usuarioBean.usuario.nome}"/>
-                    <br/>
+                            <h:panelGrid columns="1" styleClass="form-group form-cadastro">
+                                <h:outputLabel value="Nome: "/>
+                                <h:inputText styleClass="form-control" value="#{usuarioBean.usuario.nome}"/>
+                                <br/>
 
-                    <h:outputLabel value="Sobrenome: "/>
-                    <h:inputText value="#{usuarioBean.usuario.sobrenome}"/>
-                    <br/>
+                                <h:outputLabel value="Sobrenome: "/>
+                                <h:inputText styleClass="form-control" value="#{usuarioBean.usuario.sobrenome}"/>
+                                <br/>
 
-                    <h:outputLabel value="Gênero: "/>
-                    <h:selectOneRadio value="#{usuarioBean.usuario.genero}">
-                        <f:selectItem itemLabel="Masculino" itemValue="M"/>
-                        <f:selectItem itemLabel="Feminino" itemValue="F"/>
-                    </h:selectOneRadio>
-                    <br/>
+                                <h:outputLabel value="Nome de usuário:"/>
+                                <h:inputText styleClass="form-control" value="#{usuarioBean.usuario.nomeUsuario}"/>
+                                <br/>
 
-                    <h:outputLabel value="Nome de usuário:"/>
-                    <h:inputText value="#{usuarioBean.usuario.nomeUsuario}"/>
-                    <br/>
+                                <h:outputLabel value="E-mail:"/>
+                                <h:inputText styleClass="form-control" value="#{usuarioBean.usuario.email}"/>
+                                <br/>
 
-                    <h:outputLabel value="Senha"/>
-                    <h:inputSecret value="#{usuarioBean.usuario.senha}"/>
-                    <br/>
+                                <h:outputLabel value="Senha:"/>
+                                <h:inputSecret styleClass="form-control" value="#{usuarioBean.usuario.senha}"/>
+                                <br/>
 
-                    <h:outputLabel value="E-mail:"/>
-                    <h:inputText value="#{usuarioBean.usuario.email}"/>
-                    <br/>
+                                <h:outputLabel value="Universidade: "/>
+                                <h:inputText styleClass="form-control" value="#{usuarioBean.usuario.universidade}"/>
+                                <br/>
 
-                    <h:outputLabel value="Universidade: "/>
-                    <h:inputText value="#{usuarioBean.usuario.universidade}"/>
-                    <br/>
+                                <h:outputLabel value="Curso:"/>
+                                <h:inputText styleClass="form-control" value="#{usuarioBean.usuario.curso}"/>
+                                <br/>
 
-                    <h:outputLabel value="Curso:"/>
-                    <h:inputText value="#{usuarioBean.usuario.curso}"/>
-                    <br/>
+                                <h:outputLabel value="Gênero: "/>
 
-                    <h:outputLabel value="Disciplinas cursadas: "/>
-                    <h:panelGrid columns="2">
-                        <h:outputText value="Nome da Disciplina: "/>
-                        <h:inputText value="#{usuarioBean.disciplina.nome}"/>
+                                <div class="radio">
+                                    <h:selectOneRadio value="#{usuarioBean.usuario.genero}">
+                                        <f:selectItem itemLabel="Masculino" itemValue="M"/>
+                                        <f:selectItem itemLabel="Feminino" itemValue="F"/>
+                                    </h:selectOneRadio>
+                                </div>
+                                <br/>
 
-                        <h:outputText value="Departamento da Disciplina: "/>
-                        <h:selectOneMenu value="#{usuarioBean.disciplina.departamento}">
-                            <f:selectItem itemLabel="Selecione"/>
-                            <f:selectItems value="#{usuarioBean.departamentos}" var="dept" itemValue="#{dept}"/>
-                        </h:selectOneMenu>
+                                <h:outputLabel value="Disciplinas cursadas: "/>
+                                <h:panelGrid columns="2">
+                                    <h:outputText value="Nome da Disciplina: " styleClass="panel-body"/>
+                                    <h:inputText styleClass="form-control form-disciplina" value="#{usuarioBean.disciplina.nome}"/>
 
-                        <a4j:commandButton value="Adicionar" action="#{usuarioBean.adicionarDisciplina}"
-                                           render="listaDisciplinas"/>
+                                    <h:outputText value="Departamento da Disciplina: "/>
+                                    <h:selectOneMenu value="#{usuarioBean.disciplina.departamento}" styleClass="form-control form-dept">
+                                        <f:selectItem itemLabel="Selecione"/>
+                                        <f:selectItems value="#{usuarioBean.departamentos}" var="dept" itemValue="#{dept}"/>
+                                    </h:selectOneMenu>
 
-                        <a4j:region id="listaDisciplinas">
-                            <h:dataTable rendered="#{not empty usuarioBean.usuario.disciplinas}"
-                                         value="#{usuarioBean.usuario.disciplinas}" var="disciplina">
-                                <h:column>
-                                    <f:facet name="header">Nome</f:facet>
-                                    <h:outputText value="#{disciplina.nome}"/>
-                                </h:column>
+                                    <a4j:commandButton value="Adicionar" styleClass="btn btn-success adicionar" action="#{usuarioBean.adicionarDisciplina}"
+                                                       render="listaDisciplinas"/>
 
-                                <h:column>
-                                    <f:facet name="header">Departamento</f:facet>
-                                    <h:outputText value="#{disciplina.departamento}"/>
-                                </h:column>
+                                    <a4j:region id="listaDisciplinas">
+                                        <h:dataTable styleClass="table table-hover table-bordered tabela" rendered="#{not empty usuarioBean.usuario.disciplinas}"
+                                                     value="#{usuarioBean.usuario.disciplinas}" var="disciplina">
+                                            <h:column>
+                                                <f:facet name="header">Nome</f:facet>
+                                                <h:outputText value="#{disciplina.nome}"/>
+                                            </h:column>
 
-                                <h:column>
-                                    <f:facet name="header"/>
-                                    <a4j:commandButton value="Remover Disciplina"/>
-                                </h:column>
-                            </h:dataTable>
-                        </a4j:region>
-                    </h:panelGrid>
-                </h:panelGrid>
+                                            <h:column>
+                                                <f:facet name="header">Departamento</f:facet>
+                                                <h:outputText value="#{disciplina.departamento}"/>
+                                            </h:column>
 
-                <h:commandButton value="Salvar" action="#{usuarioBean.salvar}"/>
-            </h:form>
-        </ui:fragment>
+                                            <h:column>
+                                                <f:facet name="header"/>
+                                                <a4j:commandButton styleClass="btn btn-danger btn-remover" value="Remover Disciplina"/>
+                                            </h:column>
+                                        </h:dataTable>
+                                    </a4j:region>
+                                </h:panelGrid>
+                            </h:panelGrid>
+
+                            <h:commandButton value="Cadastrar" styleClass="btn btn-salvar btn-lg" action="#{usuarioBean.salvar}"/>
+                        </h:form>
+                    </ui:fragment>
+                </div>
+            </div>
+        </div>
     </ui:define>
 </ui:composition>
