@@ -51,6 +51,10 @@ public class UsuarioBean {
         return null;
     }
 
+    public void removerDisciplina(Disciplina disciplina){
+        usuario.getDisciplinas().remove(disciplina);
+    }
+
     public String cadastrar() {
         inicializarDados(true);
         return cadastrarPage();
