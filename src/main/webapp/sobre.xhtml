@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:a4j="http://richfaces.org/a4j">
+
+<h:head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="resources/css/bootstrap.css"/>
+    <link rel="stylesheet" href="resources/css/main.css"/>
+
+    <title>Sobre</title>
+</h:head>
+<body>
+<ui:fragment id="incluirListar">
+
+    <nav class="navbar navbar-default" >
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Compartilha Unb</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="#{usuarioBean.cadastrar()}">Cadastrar</a></li>
+                    <li><a href="#{usuarioBean.loginPage()">Entrar</a></li>
+                    <li><a href="">Sobre</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="fundo">
+        <h:form>
+
+            <div class="container">
+                <div class="row vertical">
+                    <div class="col-md-8 centro">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Sobre</h3>
+                            </div>
+                            <div class="panel-body">
+                                <h3 class="h3-sobre"> O <i>Compartilha Unb</i> é um projeto criado pelos alunos
+                                Iure Brandão, Kilmer Luiz e Victor Dantas da disciplina Engenharia de Software, que tem
+                                como objetivo integrar alunos e professores da UnB por meio de perguntas, respostas e
+                                compartilhamento de materiais.</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </h:form>
+    </div>
+</ui:fragment>
+</body>
+</html>

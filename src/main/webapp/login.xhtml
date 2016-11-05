@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="resources/css/bootstrap.css"/>
     <link rel="stylesheet" href="resources/css/main.css"/>
 
-    <title>Cadastrar Usuário</title>
+    <title>Login</title>
 </h:head>
 <body>
 <ui:fragment id="incluirListar">
@@ -20,12 +20,13 @@
     <nav class="navbar navbar-default" >
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">Compartilha Unb</a>
+                <a class="navbar-brand" href="#{usuarioBean.welcomePage}">Compartilha Unb</a>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li><a href="#">Cadastrar</a></li>
-                    <li><a href="#">Entrar</a></li>
+                    <li><a href="#{usuarioBean.cadastrar()}">Cadastrar</a></li>
+                    <li><a href="">Entrar</a></li>
+                    <li><a href="#{usuarioBean.sobrePage()}">Sobre</a></li>
                 </ul>
             </div>
         </div>

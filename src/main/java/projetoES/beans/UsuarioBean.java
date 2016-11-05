@@ -77,6 +77,10 @@ public class UsuarioBean {
         return "/login.xhtml";
     }
 
+    public String sobrePage() {
+        return "/sobre.xhtml?faces-redirect=true";
+    }
+
     public Usuario getUsuario() {
         if (usuario == null) {
             inicializarDados(true);
