@@ -9,7 +9,13 @@
         <div class="col-md-8 centro">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Cadastro de Usuário</h3>
+                    <h:panelGrid rendered="#{not empty usuarioBean.usuario.id}">
+                        <h3 class="panel-title">Perfil</h3>
+                    </h:panelGrid>
+
+                    <ui:fragment rendered="#{empty usuarioBean.usuario.id}">
+                        <h3 class="panel-title">Cadastro de Usuário</h3>
+                    </ui:fragment>
                 </div>
                 <div class="panel-body">
                     <ui:fragment id="incluirListar">
@@ -32,8 +38,8 @@
                                 <h:inputText styleClass="form-control" value="#{usuarioBean.usuario.email}"/>
                                 <br/>
 
-                                <h:outputLabel value="Senha:"/>
-                                <h:inputSecret styleClass="form-control" value="#{usuarioBean.usuario.senha}"/>
+                                <h:outputLabel value="Senha:" rendered="#{empty usuarioBean.usuario.senha}"/>
+                                <h:inputSecret styleClass="form-control" value="#{usuarioBean.usuario.senha}" rendered="#{empty usuarioBean.usuario.senha}"/>
                                 <br/>
 
                                 <h:outputLabel value="Universidade: "/>
@@ -57,19 +63,24 @@
                                 <h:outputLabel value="Disciplinas cursadas: "/>
                                 <h:panelGrid columns="2">
                                     <h:outputText value="Nome da Disciplina: " styleClass="panel-body"/>
-                                    <h:inputText styleClass="form-control form-disciplina" value="#{usuarioBean.disciplina.nome}"/>
+                                    <h:inputText styleClass="form-control form-disciplina"
+                                                 value="#{usuarioBean.disciplina.nome}"/>
 
                                     <h:outputText value="Departamento da Disciplina: "/>
-                                    <h:selectOneMenu value="#{usuarioBean.disciplina.departamento}" styleClass="form-control form-dept">
+                                    <h:selectOneMenu value="#{usuarioBean.disciplina.departamento}"
+                                                     styleClass="form-control form-dept">
                                         <f:selectItem itemLabel="Selecione"/>
-                                        <f:selectItems value="#{usuarioBean.departamentos}" var="dept" itemValue="#{dept}"/>
+                                        <f:selectItems value="#{usuarioBean.departamentos}" var="dept"
+                                                       itemValue="#{dept}"/>
                                     </h:selectOneMenu>
 
-                                    <a4j:commandButton value="Adicionar" styleClass="btn btn-success adicionar" action="#{usuarioBean.adicionarDisciplina}"
+                                    <a4j:commandButton value="Adicionar" styleClass="btn btn-success adicionar"
+                                                       action="#{usuarioBean.adicionarDisciplina}"
                                                        render="listaDisciplinas"/>
 
                                     <a4j:region id="listaDisciplinas">
-                                        <h:dataTable styleClass="table table-hover table-bordered tabela" rendered="#{not empty usuarioBean.usuario.disciplinas}"
+                                        <h:dataTable styleClass="table table-hover table-bordered tabela"
+                                                     rendered="#{not empty usuarioBean.usuario.disciplinas}"
                                                      value="#{usuarioBean.usuario.disciplinas}" var="disciplina">
                                             <h:column>
                                                 <f:facet name="header">Nome</f:facet>
@@ -83,14 +94,16 @@
 
                                             <h:column>
                                                 <f:facet name="header"/>
-                                                <a4j:commandButton styleClass="btn btn-danger btn-remover" value="Remover Disciplina"/>
+                                                <a4j:commandButton styleClass="btn btn-danger btn-remover"
+                                                                   value="Remover Disciplina"/>
                                             </h:column>
                                         </h:dataTable>
                                     </a4j:region>
                                 </h:panelGrid>
                             </h:panelGrid>
 
-                            <h:commandButton value="Cadastrar" styleClass="btn btn-salvar btn-lg" action="#{usuarioBean.salvar}"/>
+                            <h:commandButton value="Cadastrar" styleClass="btn btn-salvar btn-lg"
+                                             action="#{usuarioBean.salvar}"/>
                         </h:form>
                     </ui:fragment>
                 </div>
