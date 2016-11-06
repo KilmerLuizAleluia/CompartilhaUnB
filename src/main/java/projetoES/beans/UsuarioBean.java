@@ -7,6 +7,7 @@ import projetoES.model.entities.Disciplina;
 import projetoES.model.entities.Usuario;
 import projetoES.model.enums.TipoDepartamento;
 import projetoES.persistence.repositories.UsuarioRepository;
+import projetoES.utils.PageUtil;
 
 import java.util.Arrays;
 import java.util.List;
@@ -30,7 +31,7 @@ public class UsuarioBean {
 
     public String salvar() {
         usuarioRepository.save(usuario);
-        return welcomePage();
+        return getWelcomePage();
     }
 
     public List<TipoDepartamento> getDepartamentos() {
@@ -46,47 +47,43 @@ public class UsuarioBean {
     public String login() {
         usuario = usuarioRepository.findByNomeUsuarioAndSenha(usuario.getNomeUsuario(), usuario.getSenha());
         if (usuario != null) {
-            return welcomePage();
+            return getWelcomePage();
         }
         return null;
     }
 
-    public void removerDisciplina(Disciplina disciplina){
+    public void removerDisciplina(Disciplina disciplina) {
         usuario.getDisciplinas().remove(disciplina);
     }
 
     public String cadastrar() {
         inicializarDados(true);
-        return cadastrarPage();
+        return getCadastrarPage();
     }
 
     public String sair() {
         inicializarDados(true);
-        return loginPage();
-    }
-
-    public String welcomePage() {
-        return "/welcome-page.xhtml?faces-redirect=true";
+        return getLoginPage();
     }
 
     public String getWelcomePage() {
-        return "/welcome-page.xhtml?faces-redirect=true";
+        return PageUtil.WELCOME_PAGE;
     }
 
-    public String cadastrarPage() {
-        return "/manterusuario/incluirAlterar.xhtml?faces-redirect=true";
+    public String getLoginPage() {
+        return PageUtil.LOGIN_PAGE;
     }
 
-    private String loginPage() {
-        return "/login.xhtml?faces-redirect=true";
+    public String getCadastrarPage() {
+        return PageUtil.CADASTRAR_PAGE;
     }
 
-    private String forumPage() {
-        return "/forum/forum.xhtml?faces-redirect=true";
+    public String getForumPage() {
+        return PageUtil.FORUM_PAGE;
     }
 
-    public String sobrePage() {
-        return "/sobre.xhtml?faces-redirect=true";
+    public String getSobrePage() {
+        return PageUtil.SOBRE_PAGE;
     }
 
     public Usuario getUsuario() {
