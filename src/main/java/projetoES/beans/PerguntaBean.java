@@ -64,6 +64,11 @@ public class PerguntaBean {
     public List<Pergunta> pesquisar() {
         PerguntaSpecification perguntaSpecification = new PerguntaSpecification(pergunta);
         listaPerguntas = perguntaRepository.findAll(perguntaSpecification);
+
+        if(listaPerguntas.size() > 5){
+            listaPerguntas = listaPerguntas.subList(0,5);
+        }
+
         return listaPerguntas;
     }
 

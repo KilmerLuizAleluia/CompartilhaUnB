@@ -55,13 +55,20 @@
     padding-top: 50px;
 }
 
-.votar,.votar-materiais{
+.votar{
+    width: 20%;
+    text-align: center;
+    float: none;
+    margin: 0 auto;
+}
+
+.votar-materiais{
     width: 20%;
     text-align: center;
 }
 
 .votar-respostas{
-    width: 10%;
+    width: 50%;
     text-align: center;
 }
 
@@ -73,14 +80,30 @@
     margin-left: 20%;
 }
 
+#avaliacao{
+    color: #ffffff;
+    background-color: transparent;
+    width: 30%;
+    border-color: transparent;
+}
+
+.votacao{
+    width: 50%;
+}
+
 .btn-adicionar{
     margin-top: 2%;
-    margin-bottom: 5%;
-    margin-left: 37%;
+    margin-bottom: 3%;
+    margin-left: 40%;
 }
 
 .btn-responder{
     margin-left: 30%;
+    margin-top: 6%;
+}
+
+.tabela-pergunta{
+    text-align: center;
 }
 
 .btn-salvar{

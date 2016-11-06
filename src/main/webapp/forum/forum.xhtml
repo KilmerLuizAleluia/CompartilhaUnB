@@ -7,7 +7,7 @@
                 xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
 
     <ui:define name="body">
-        <div class="col-md-8 centro">
+        <div class="col-md-12 centro">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title">Fórum</h3>
@@ -39,20 +39,26 @@
                                 <h:panelGrid columns="3" styleClass="form-group form-cadastro">
 
 
-                                    <h:dataTable styleClass="table table-hover table-bordered tabela"
+                                    <h:dataTable styleClass="table table-hover table-bordered"
                                                  rendered="#{ not empty perguntaBean.listaPerguntas}"
                                                  value="#{perguntaBean.listaPerguntas}" var="pergunta">
 
-                                        <h:column >
+                                        <h:column>
+                                            <f:facet name="header">Avaliação</f:facet>
                                             <div class="votar">
-
-                                                <a><span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span></a>
-                                                <span class="vote-count-post">6</span>
-                                                <a><span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></a>
+                                                <h:commandLink><span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span></h:commandLink>
+                                                <input type="button" class="btn btn-primary btn-xs" value="#{pergunta.numeroLikes - pergunta.numeroDeslikes}" />
+                                                <h:commandLink><span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></h:commandLink>
                                             </div>
                                         </h:column>
 
+                                        <h:column>
+                                            <f:facet name="header">Título</f:facet>
+                                            <h:commandLink value="#{pergunta.titulo}"></h:commandLink>
+                                        </h:column>
+
                                         <h:column >
+                                            <f:facet name="header">Pergunta</f:facet>
                                             <h:inputTextarea id="descricao" styleClass="form-control" readonly="True" rows="2" value="#{pergunta.descricao}"></h:inputTextarea>
                                         </h:column>
 
@@ -78,12 +84,23 @@
                                 </h:panelGrid>
 
                                 <h:panelGrid columns="2" styleClass="form-group">
-                                    <div class="votar-respostas">
-                                        <a><span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span></a>
-                                        <span class="vote-count-post">6</span>
-                                        <a><span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></a>
-                                    </div>
-                                    <h:inputTextarea styleClass="form-control area-pergunta" readonly="True" value="#{perguntaBean.pergunta.descricao}"></h:inputTextarea>
+                                    <h:dataTable styleClass="table table-hover table-bordered"
+                                                  var="resposta">
+
+                                        <h:column>
+                                            <f:facet name="header">Avaliação</f:facet>
+                                            <div class="votar-respostas">
+                                                <h:commandLink><span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span></h:commandLink>
+                                                <input type="button" class="btn btn-primary btn-xs" value="0" />
+                                                <h:commandLink><span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></h:commandLink>
+                                            </div>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">Resposta</f:facet>
+                                            <h:inputTextarea styleClass="form-control" readonly="True" value="#"></h:inputTextarea>
+                                        </h:column>
+
+                                    </h:dataTable>
                                 </h:panelGrid>
                             </div>
 
