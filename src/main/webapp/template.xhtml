@@ -19,33 +19,59 @@
 
 <body>
 
+
 <h:form>
-    <nav id="menu" class="navbar navbar-default">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <h:commandLink styleClass="navbar-brand" value="Compartilha Unb" action="#{usuarioBean.welcomePage}"/>
+    <a4j:outputPanel rendered="#{not empty usuarioBean.usuario.id}">
+
+        <nav id="menu" class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <h:commandLink styleClass="navbar-brand" value="Compartilha Unb" action="#{usuarioBean.welcomePage}"/>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#{usuarioBean.sobrePage}">Sobre</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                               aria-expanded="false">
+                                <h:outputText value="#{usuarioBean.usuario.nome}"/>
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <h:commandLink value="Perfil" action="#{usuarioBean.cadastrarPage}"/>
+                                </li>
+                                <li><h:commandLink value="Sair" action="#{usuarioBean.sair}"/></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li><a href="#{usuarioBean.sobrePage}">Sobre</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                           aria-expanded="false">
-                            <h:outputText value="#{usuarioBean.usuario.nome}"/>
-                            <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <h:commandLink value="Perfil" action="#{usuarioBean.cadastrarPage}"/>
-                            </li>
-                            <li><h:commandLink value="Sair" action="#{usuarioBean.sair}"/></li>
-                        </ul>
-                    </li>
-                </ul>
+        </nav>
+
+    </a4j:outputPanel>
+
+    <a4j:outputPanel rendered="#{empty usuarioBean.usuario.id}">
+
+        <nav class="navbar navbar-default" >
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#{usuarioBean.welcomePage}">Compartilha Unb</a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#{usuarioBean.cadastrar()}">Cadastrar</a></li>
+                        <li><a href="">Entrar</a></li>
+                        <li><a href="#{usuarioBean.sobrePage}">Sobre</a></li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
+
+    </a4j:outputPanel>
+
 </h:form>
+
 <div class="fundo">
     <div class="container">
         <div class="row vertical">
