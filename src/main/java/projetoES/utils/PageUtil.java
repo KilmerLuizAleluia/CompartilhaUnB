@@ -7,4 +7,6 @@ public class PageUtil {
     public static final String FORUM_PAGE = "/forum/forum.xhtml?faces-redirect=true";
     public static final String SOBRE_PAGE = "/sobre.xhtml?faces-redirect=true";
     public static final String ADDPERGUNTA_PAGE = "/manterpergunta/incluirPergunta.xhtml?faces-redirect=true";
+    public static final String MATERIAIS_PAGE = "/materiais/materiais.xhtml?faces-redirect=true";
+
 }

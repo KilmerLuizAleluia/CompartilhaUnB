@@ -86,6 +86,10 @@ public class UsuarioBean {
         return PageUtil.SOBRE_PAGE;
     }
 
+    public String getMateriaisPage() {
+        return PageUtil.MATERIAIS_PAGE;
+    }
+
     public Usuario getUsuario() {
         if (usuario == null) {
             inicializarDados(true);
