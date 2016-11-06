@@ -9,6 +9,8 @@ import projetoES.model.entities.Disciplina;
 import projetoES.model.entities.Pergunta;
 import projetoES.persistence.repositories.PerguntaRepository;
 import projetoES.persistence.repositories.UsuarioRepository;
+import projetoES.persistence.specifications.PerguntaSpecification;
+import projetoES.utils.PageUtil;
 
 import java.util.List;
 
@@ -33,11 +35,13 @@ public class PerguntaBean {
     }
 
     public String perguntaPage(){
-        return "/manterpergunta/incluirPergunta.xhtml?faces-redirect=true";
+        return getAddPerguntaPage();
     }
 
     public String salvarPergunta(){
         UsuarioBean bean = (UsuarioBean) contexto.getBean("usuarioBean");
+        pergunta.setNumeroDeslikes(0);
+        pergunta.setNumeroLikes(0);
         pergunta.setUsuario(bean.getUsuario());
         perguntaRepository.save(pergunta);
         return null;
@@ -49,13 +53,25 @@ public class PerguntaBean {
         return bean.getUsuario().getDisciplinas();
     }
 
-    public void setPergunta(Pergunta pergunta){ this.pergunta = pergunta; }
+    public void setPergunta(Pergunta pergunta){
+        this.pergunta = pergunta;
+    }
 
     public Pergunta getPergunta(){
         if (pergunta == null){
             inicializarDados();
         }
         return pergunta;
+    }
+
+    public List<Pergunta> pesquisar(){
+        PerguntaSpecification perguntaSpecification = new PerguntaSpecification(pergunta);
+        List<Pergunta> perguntas = perguntaRepository.findAll(perguntaSpecification);
+        return perguntas;
+    }
+
+    public String getAddPerguntaPage(){
+        return PageUtil.ADDPERGUNTA_PAGE;
     }
 
 }
