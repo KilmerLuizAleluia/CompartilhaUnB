@@ -23,11 +23,13 @@
     <nav id="menu" class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
-                <h:commandLink styleClass="navbar-brand" value="Compartilha Unb" action="#{usuarioBean.welcomePage}"/>
+                <h:commandLink styleClass="navbar-brand" value="Compartilha Unb" action="#{usuarioBean.getWelcomePage()}"/>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li><a href="#{usuarioBean.sobrePage}">Sobre</a></li>
+                    <li>
+                        <h:commandLink value="Sobre" action="#{usuarioBean.getSobrePage()}"/>
+                    </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                            aria-expanded="false">
@@ -36,7 +38,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li>
-                                <h:commandLink value="Perfil" action="#{usuarioBean.cadastrarPage}"/>
+                                <h:commandLink value="Perfil" action="#{usuarioBean.getCadastrarPage()}"/>
                             </li>
                             <li><h:commandLink value="Sair" action="#{usuarioBean.sair}"/></li>
                         </ul>

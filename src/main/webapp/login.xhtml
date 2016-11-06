@@ -16,24 +16,28 @@
 </h:head>
 <body>
 <ui:fragment id="incluirListar">
+    <h:form>
 
-    <nav class="navbar navbar-default" >
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#{usuarioBean.welcomePage}">Compartilha Unb</a>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#{usuarioBean.welcomePage}">Compartilha Unb</a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <h:commandLink value="Cadastrar" action="#{usuarioBean.cadastrar}"/>
+                        </li>
+                        <li><a href="">Entrar</a></li>
+                        <li>
+                            <h:commandLink value="Sobre" action="#{usuarioBean.getSobrePage()}"/>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li><a href="#{usuarioBean.cadastrar()}">Cadastrar</a></li>
-                    <li><a href="">Entrar</a></li>
-                    <li><a href="#{usuarioBean.sobrePage}">Sobre</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+        </nav>
 
-    <div class="fundo">
-        <h:form>
+        <div class="fundo">
 
             <div class="container">
                 <div class="row vertical">
@@ -47,16 +51,19 @@
 
                                     <h:outputLabel styleClass="col-sm-2" value="Login:"/>
                                     <div class="col-lg-10">
-                                        <h:inputText styleClass="form-control form-login" value="#{usuarioBean.usuario.nomeUsuario}"/>
+                                        <h:inputText styleClass="form-control form-login"
+                                                     value="#{usuarioBean.usuario.nomeUsuario}"/>
                                     </div>
 
                                     <h:outputLabel styleClass="col-sm-2" value="Senha:"/>
                                     <div class="col-sm-10">
-                                        <h:inputSecret styleClass="form-control form-login" value="#{usuarioBean.usuario.senha}"/>
+                                        <h:inputSecret styleClass="form-control form-login"
+                                                       value="#{usuarioBean.usuario.senha}"/>
                                     </div>
 
                                     <div class="col-sm-10">
-                                        <h:commandButton value="Login" action="#{usuarioBean.login}" styleClass="btn btn-success btn-lg btn-login"/>
+                                        <h:commandButton value="Login" action="#{usuarioBean.login}"
+                                                         styleClass="btn btn-success btn-lg btn-login"/>
                                         <h:column/>
                                     </div>
                                     <h:column/>
@@ -66,7 +73,8 @@
 
                                         <h:outputLabel value="Ainda não tem cadastro?" styleClass="label-cadastro"/>
                                         <div class="col-sm-10">
-                                            <h:commandButton value="Cadastrar" action="#{usuarioBean.cadastrar}" styleClass="btn btn-info btn-lg btn-cadastro"/>
+                                            <h:commandButton value="Cadastrar" action="#{usuarioBean.cadastrar}"
+                                                             styleClass="btn btn-info btn-lg btn-cadastro"/>
                                         </div>
                                     </div>
                                 </h:panelGrid>
@@ -75,8 +83,8 @@
                     </div>
                 </div>
             </div>
-        </h:form>
-    </div>
+        </div>
+    </h:form>
 </ui:fragment>
 </body>
 </html>
