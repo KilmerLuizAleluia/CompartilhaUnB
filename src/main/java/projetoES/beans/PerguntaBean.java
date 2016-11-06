@@ -12,6 +12,7 @@ import projetoES.persistence.repositories.UsuarioRepository;
 import projetoES.persistence.specifications.PerguntaSpecification;
 import projetoES.utils.PageUtil;
 
+import javax.annotation.PostConstruct;
 import java.util.List;
 
 @Component
@@ -25,9 +26,13 @@ public class PerguntaBean {
     private ApplicationContext contexto;
 
     private Pergunta pergunta;
+    private List<Pergunta> listaPerguntas;
 
+    @PostConstruct
     private void  inicializarDados() {
         pergunta = new Pergunta();
+        listaPerguntas = pesquisar();
+
     }
 
     public String salvarPergunta() {
@@ -58,8 +63,19 @@ public class PerguntaBean {
 
     public List<Pergunta> pesquisar() {
         PerguntaSpecification perguntaSpecification = new PerguntaSpecification(pergunta);
-        List<Pergunta> perguntas = perguntaRepository.findAll(perguntaSpecification);
-        return perguntas;
+        listaPerguntas = perguntaRepository.findAll(perguntaSpecification);
+        return listaPerguntas;
+    }
+
+    public List<Pergunta> getListaPerguntas() {
+        if(listaPerguntas == null){
+            listaPerguntas = pesquisar();
+        }
+        return listaPerguntas;
+    }
+
+    public void setListaPerguntas(List<Pergunta> listaPerguntas) {
+        this.listaPerguntas = listaPerguntas;
     }
 
     public String getAddPerguntaPage() {
