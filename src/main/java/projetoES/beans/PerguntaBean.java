@@ -12,6 +12,7 @@ import projetoES.persistence.repositories.UsuarioRepository;
 import projetoES.persistence.specifications.PerguntaSpecification;
 import projetoES.utils.PageUtil;
 
+import javax.annotation.PostConstruct;
 import java.util.List;
 
 @Component
@@ -25,20 +26,16 @@ public class PerguntaBean {
     private ApplicationContext contexto;
 
     private Pergunta pergunta;
+    private List<Pergunta> listaPerguntas;
 
-    private void  inicializarDados(){
+    @PostConstruct
+    private void  inicializarDados() {
         pergunta = new Pergunta();
+        listaPerguntas = pesquisar();
+
     }
 
-    public String inserirPergunta(){
-        return perguntaPage();
-    }
-
-    public String perguntaPage(){
-        return getAddPerguntaPage();
-    }
-
-    public String salvarPergunta(){
+    public String salvarPergunta() {
         UsuarioBean bean = (UsuarioBean) contexto.getBean("usuarioBean");
         pergunta.setNumeroDeslikes(0);
         pergunta.setNumeroLikes(0);
@@ -48,7 +45,7 @@ public class PerguntaBean {
     }
 
 
-    public List<Disciplina> getDisciplinas(){
+    public List<Disciplina> getDisciplinas() {
         UsuarioBean bean = (UsuarioBean) contexto.getBean("usuarioBean");
         return bean.getUsuario().getDisciplinas();
     }
@@ -64,13 +61,24 @@ public class PerguntaBean {
         return pergunta;
     }
 
-    public List<Pergunta> pesquisar(){
+    public List<Pergunta> pesquisar() {
         PerguntaSpecification perguntaSpecification = new PerguntaSpecification(pergunta);
-        List<Pergunta> perguntas = perguntaRepository.findAll(perguntaSpecification);
-        return perguntas;
+        listaPerguntas = perguntaRepository.findAll(perguntaSpecification);
+        return listaPerguntas;
     }
 
-    public String getAddPerguntaPage(){
+    public List<Pergunta> getListaPerguntas() {
+        if(listaPerguntas == null){
+            listaPerguntas = pesquisar();
+        }
+        return listaPerguntas;
+    }
+
+    public void setListaPerguntas(List<Pergunta> listaPerguntas) {
+        this.listaPerguntas = listaPerguntas;
+    }
+
+    public String getAddPerguntaPage() {
         return PageUtil.ADDPERGUNTA_PAGE;
     }
 

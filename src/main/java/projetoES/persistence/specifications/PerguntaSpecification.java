@@ -23,7 +23,7 @@ public class PerguntaSpecification implements Specification<Pergunta>{
 
         List<Predicate> predicates = new ArrayList<>();
 
-        if (pergunta.getDisciplina().getNome() != null){
+        if (pergunta.getDescricao() != null && pergunta.getDisciplina().getNome() != null){
             predicates.add(cb.like(root.get(pergunta.getDisciplina().getNome()), "%" + pergunta.getDisciplina().getNome() + "%"));
         }
 

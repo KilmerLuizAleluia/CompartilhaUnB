@@ -22,36 +22,52 @@
                             <div class="tab-pane fade active in" id="perguntas">
 
                                 <h:panelGrid columns="4" styleClass="form-group form-perguntas">
-                                    <h:inputText styleClass="form-control" value="#{perguntaBean.pergunta.disciplina}" p:placeholder="Localizar pergunta por disciplina"/>
+                                    <h:inputText id="pesquisarDisciplina" converter="#{disciplinaConverter}" styleClass="form-control" value="#{perguntaBean.pergunta.disciplina}" p:placeholder="Localizar pergunta por disciplina"/>
                                     <h:commandLink value="" styleClass="btn btn-default" action="#{perguntaBean.pesquisar}" >
                                         <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                                     </h:commandLink>
-                                    <h:inputText styleClass="form-control" value="#{perguntaBean.pergunta.descricao}" p:placeholder="Localizar pergunta por descrição"/>
+                                    <h:inputText id="pesquisarDescricao" styleClass="form-control" value="#{perguntaBean.pergunta.descricao}" p:placeholder="Localizar pergunta por descrição"/>
                                     <h:commandLink value="" styleClass="btn btn-default" action="#{perguntaBean.pesquisar}" >
                                         <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                                     </h:commandLink>
                                 </h:panelGrid>
 
-                                <h:commandLink type="button" class="btn btn-primary btn-adicionar" aria-label="Left Align" >
+                                <h:commandLink type="button" class="btn btn-primary btn-adicionar" aria-label="Left Align" action="#{perguntaBean.getAddPerguntaPage()}">
                                     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Adicionar Pergunta
                                 </h:commandLink>
 
                                 <h:panelGrid columns="3" styleClass="form-group form-cadastro">
 
-                                    <div class="votar">
-                                        <a><span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span></a>
-                                        <span class="vote-count-post">6</span>
-                                        <a><span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></a>
-                                    </div>
 
-                                    <h:inputTextarea styleClass="form-control" readonly="True" rows="2" value="#{perguntaBean.pergunta.descricao}"></h:inputTextarea>
-                                    <h:commandButton value="Responder" styleClass="btn btn-success btn-responder" action="#{perguntaBean.perguntaPage}"/>
+                                    <h:dataTable styleClass="table table-hover table-bordered tabela"
+                                                 rendered="#{ not empty perguntaBean.listaPerguntas}"
+                                                 value="#{perguntaBean.listaPerguntas}" var="pergunta">
+
+                                        <h:column >
+                                            <div class="votar">
+
+                                                <a><span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span></a>
+                                                <span class="vote-count-post">6</span>
+                                                <a><span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></a>
+                                            </div>
+                                        </h:column>
+
+                                        <h:column >
+                                            <h:inputTextarea id="descricao" styleClass="form-control" readonly="True" rows="2" value="#{pergunta.descricao}"></h:inputTextarea>
+                                        </h:column>
+
+                                        <h:column>
+                                            <h:commandButton value="Responder" styleClass="btn btn-success btn-responder"/>
+                                        </h:column>
+
+                                    </h:dataTable>
+
                                 </h:panelGrid>
                             </div>
 
                             <div class="tab-pane" id="respostas">
                                 <h:panelGrid columns="4" styleClass="form-group form-perguntas">
-                                    <h:inputText styleClass="form-control" value="#{perguntaBean.pergunta.disciplina}" p:placeholder="Localizar resposta por disciplina"/>
+                                    <h:inputText converter="#{disciplinaConverter}" styleClass="form-control" value="#{perguntaBean.pergunta.disciplina}" p:placeholder="Localizar resposta por disciplina"/>
                                     <h:commandLink value="" styleClass="btn btn-default" action="#{perguntaBean.pesquisar}" >
                                         <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                                     </h:commandLink>
