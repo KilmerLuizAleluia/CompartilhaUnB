@@ -26,19 +26,11 @@ public class PerguntaBean {
 
     private Pergunta pergunta;
 
-    private void  inicializarDados(){
+    private void  inicializarDados() {
         pergunta = new Pergunta();
     }
 
-    public String inserirPergunta(){
-        return perguntaPage();
-    }
-
-    public String perguntaPage(){
-        return getAddPerguntaPage();
-    }
-
-    public String salvarPergunta(){
+    public String salvarPergunta() {
         UsuarioBean bean = (UsuarioBean) contexto.getBean("usuarioBean");
         pergunta.setNumeroDeslikes(0);
         pergunta.setNumeroLikes(0);
@@ -48,7 +40,7 @@ public class PerguntaBean {
     }
 
 
-    public List<Disciplina> getDisciplinas(){
+    public List<Disciplina> getDisciplinas() {
         UsuarioBean bean = (UsuarioBean) contexto.getBean("usuarioBean");
         return bean.getUsuario().getDisciplinas();
     }
@@ -64,13 +56,13 @@ public class PerguntaBean {
         return pergunta;
     }
 
-    public List<Pergunta> pesquisar(){
+    public List<Pergunta> pesquisar() {
         PerguntaSpecification perguntaSpecification = new PerguntaSpecification(pergunta);
         List<Pergunta> perguntas = perguntaRepository.findAll(perguntaSpecification);
         return perguntas;
     }
 
-    public String getAddPerguntaPage(){
+    public String getAddPerguntaPage() {
         return PageUtil.ADDPERGUNTA_PAGE;
     }
 
