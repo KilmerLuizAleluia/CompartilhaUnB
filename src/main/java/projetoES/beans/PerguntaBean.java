@@ -2,13 +2,13 @@ package projetoES.beans;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.Lifecycle;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 import projetoES.model.entities.Disciplina;
 import projetoES.model.entities.Pergunta;
+import projetoES.persistence.repositories.DisciplinaRepository;
 import projetoES.persistence.repositories.PerguntaRepository;
-import projetoES.persistence.repositories.UsuarioRepository;
 import projetoES.persistence.specifications.PerguntaSpecification;
 import projetoES.utils.PageUtil;
 
@@ -23,25 +23,32 @@ public class PerguntaBean {
     private PerguntaRepository perguntaRepository;
 
     @Autowired
+    private DisciplinaRepository disciplinaRepository;
+
+    @Autowired
     private ApplicationContext contexto;
 
     private Pergunta pergunta;
     private List<Pergunta> listaPerguntas;
+    private Integer disciplinaId;
 
     @PostConstruct
-    private void  inicializarDados() {
+    private void inicializarDados() {
         pergunta = new Pergunta();
         listaPerguntas = pesquisar();
-
+        disciplinaId = null;
     }
 
+    @Transactional
     public String salvarPergunta() {
         UsuarioBean bean = (UsuarioBean) contexto.getBean("usuarioBean");
+        pergunta.setDisciplina(disciplinaRepository.findOne(disciplinaId));
         pergunta.setNumeroDeslikes(0);
         pergunta.setNumeroLikes(0);
         pergunta.setUsuario(bean.getUsuario());
         perguntaRepository.save(pergunta);
-        return null;
+        inicializarDados();
+        return PageUtil.FORUM_PAGE;
     }
 
 
@@ -50,12 +57,12 @@ public class PerguntaBean {
         return bean.getUsuario().getDisciplinas();
     }
 
-    public void setPergunta(Pergunta pergunta){
+    public void setPergunta(Pergunta pergunta) {
         this.pergunta = pergunta;
     }
 
-    public Pergunta getPergunta(){
-        if (pergunta == null){
+    public Pergunta getPergunta() {
+        if (pergunta == null) {
             inicializarDados();
         }
         return pergunta;
@@ -65,15 +72,15 @@ public class PerguntaBean {
         PerguntaSpecification perguntaSpecification = new PerguntaSpecification(pergunta);
         listaPerguntas = perguntaRepository.findAll(perguntaSpecification);
 
-        if(listaPerguntas.size() > 5){
-            listaPerguntas = listaPerguntas.subList(0,5);
+        if (listaPerguntas.size() > 5) {
+            listaPerguntas = listaPerguntas.subList(0, 5);
         }
 
         return listaPerguntas;
     }
 
     public List<Pergunta> getListaPerguntas() {
-        if(listaPerguntas == null){
+        if (listaPerguntas == null) {
             listaPerguntas = pesquisar();
         }
         return listaPerguntas;
@@ -87,4 +94,11 @@ public class PerguntaBean {
         return PageUtil.ADDPERGUNTA_PAGE;
     }
 
+    public Integer getDisciplinaId() {
+        return disciplinaId;
+    }
+
+    public void setDisciplinaId(Integer disciplinaId) {
+        this.disciplinaId = disciplinaId;
+    }
 }

@@ -16,9 +16,9 @@
                         <h:panelGrid columns="1" styleClass="form-group form-cadastro">
                             <div class="form-pergunta">
                                 <h:outputText value="Disciplina: "/>
-                                <h:selectOneMenu value="#{perguntaBean.pergunta.disciplina}" styleClass="form-control" converter="#{disciplinaConverter}">
+                                <h:selectOneMenu id="disciplina" value="#{perguntaBean.disciplinaId}" styleClass="form-control">
                                     <f:selectItem itemLabel="Selecione"/>
-                                    <f:selectItems value="#{perguntaBean.disciplinas}" var="disciplina" itemValue="#{disciplina}" itemLabel="#{disciplina.nome}"/>
+                                    <f:selectItems value="#{perguntaBean.disciplinas}" var="disciplina" itemValue="#{disciplina.id}" itemLabel="#{disciplina.nome}"/>
                                 </h:selectOneMenu>
                             </div>
                             <div class="form-pergunta">
