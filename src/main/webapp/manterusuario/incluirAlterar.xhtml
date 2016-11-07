@@ -9,9 +9,9 @@
         <div class="col-md-8 centro">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h:panelGrid rendered="#{not empty usuarioBean.usuario.id}">
+                    <ui:fragment rendered="#{not empty usuarioBean.usuario.id}">
                         <h3 class="panel-title">Perfil</h3>
-                    </h:panelGrid>
+                    </ui:fragment>
 
                     <ui:fragment rendered="#{empty usuarioBean.usuario.id}">
                         <h3 class="panel-title">Cadastro de Usuário</h3>
@@ -106,7 +106,15 @@
                                 </a4j:outputPanel>
                             </h:panelGrid>
 
-                            <h:commandButton value="Cadastrar" styleClass="btn btn-salvar btn-ajuste btn-lg" action="#{usuarioBean.salvar}"/>
+                            <ui:fragment rendered="#{empty usuarioBean.usuario.id}">
+                                <h:commandButton value="Cancelar" styleClass="btn btn-danger btn-cancelar btn-lg" action="#{usuarioBean.login}"/>
+                                <h:commandButton value="Cadastrar" styleClass="btn btn-salvar btn-ajuste btn-lg" action="#{usuarioBean.salvar}"/>
+                            </ui:fragment>
+                            <ui:fragment rendered="#{not empty usuarioBean.usuario.id}">
+                                <h:commandButton value="Cancelar" styleClass="btn btn-danger btn-cancelar btn-lg" action="#{usuarioBean.getWelcomePage()}"/>
+                                <h:commandButton value="Salvar alterações" styleClass="btn btn-salvar btn-ajuste btn-lg" action="#{usuarioBean.salvar}"/>
+                            </ui:fragment>
+
                         </h:form>
                     </ui:fragment>
                 </div>

@@ -32,7 +32,10 @@
                                 <h:inputTextarea styleClass="form-control" rows="5" value="#{perguntaBean.pergunta.descricao}"></h:inputTextarea>
                             </div>
 
-                            <h:commandButton value="Adicionar Pergunta" styleClass="btn btn-perguntar btn-lg" action="#{perguntaBean.salvarPergunta}"/>
+                            <h:panelGrid columns="2" styleClass="form-group form-botoes">
+                                <h:commandButton value="Cancelar" styleClass="btn btn-cancel btn-danger btn-lg" action="#{usuarioBean.getForumPage()}"/>
+                                <h:commandButton value="Adicionar Pergunta" styleClass="btn btn-perguntar btn-lg" action="#{perguntaBean.salvarPergunta}"/>
+                            </h:panelGrid>
                         </h:panelGrid>
                     </h:form>
                 </div>

@@ -26,8 +26,10 @@
                                 <h:outputText value="Resposta: "/>
                                 <h:inputTextarea styleClass="form-control" rows="5" value="#{respostaBean.resposta.descricao}"></h:inputTextarea>
                             </div>
-
-                            <h:commandButton value="Adicionar Resposta" styleClass="btn btn-perguntar btn-lg" action="#{respostaBean.salvarResposta}"/>
+                            <h:panelGrid columns="2" styleClass="form-group form-botoes">
+                                <h:commandButton value="Cancelar" styleClass="btn btn-cancel btn-danger btn-lg" action="#{usuarioBean.getForumPage()}"/>
+                                <h:commandButton value="Adicionar Resposta" styleClass="btn btn-perguntar btn-lg" action="#{respostaBean.salvarResposta}"/>
+                            </h:panelGrid>
                         </h:panelGrid>
                     </h:form>
                 </div>

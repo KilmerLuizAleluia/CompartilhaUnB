@@ -16,6 +16,9 @@
     margin-top: 5%;
     margin-left: 40%;
 }
+.btn-cancelar{
+    margin-left: 35%;
+}
 
 .label-cadastro{
     margin-left: 33%;
@@ -43,6 +46,10 @@
 
 .form-materiais{
     width: 70%;
+}
+
+.form-botoes{
+    margin-top: 3%;
 }
 
 .fundo{
@@ -102,16 +109,11 @@
     margin-top: 6%;
 }
 
-.tabela-pergunta{
-    text-align: center;
-}
-
 .btn-salvar{
     color: #ffffff;
     background-color: #247ba0;
     border-color: #247ba0;
-    margin-left: 41%;
-    margin-top: 5%;
+    margin-left: 3%;
 }
 
 .btn-salvar:hover {
@@ -124,8 +126,7 @@
     color: #ffffff;
     background-color: #247ba0;
     border-color: #247ba0;
-    margin-left: 38%;
-    margin-top: 5%;
+    margin-left: 120%;
 }
 
 .btn-perguntar:hover {
@@ -136,6 +137,14 @@
 
 .btn-remover{
     margin-top: 3%;
+}
+
+.btn-cancel{
+    margin-left: 200%;
+}
+
+.tabela-pergunta{
+    text-align: center;
 }
 
 .tabela{
