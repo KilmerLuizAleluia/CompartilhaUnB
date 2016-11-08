@@ -91,8 +91,6 @@ public class UsuarioBean {
     }
 
     public String getMateriaisPage() {
-        PerguntaBean bean = (PerguntaBean) contexto.getBean("perguntaBean");
-        bean.inicializarDados();
         return PageUtil.MATERIAIS_PAGE;
     }
 
