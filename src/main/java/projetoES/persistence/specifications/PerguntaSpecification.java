@@ -1,40 +1,23 @@
 package projetoES.persistence.specifications;
 
 
+import javax.persistence.criteria.Predicate;
 import org.springframework.data.jpa.domain.Specification;
 import projetoES.model.entities.Pergunta;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
-import java.util.ArrayList;
-import java.util.List;
 
-public class PerguntaSpecification implements Specification<Pergunta>{
-    private Pergunta pergunta;
+public class PerguntaSpecification {
 
-    public PerguntaSpecification (Pergunta pergunta) {
-        this.pergunta = pergunta;
-    }
+    public static Specification<Pergunta> perguntaFilter(String titulo) {
+        return new Specification<Pergunta>() {
+            public Predicate toPredicate(Root<Pergunta> root, CriteriaQuery<?> query,
+                                         CriteriaBuilder builder) {
 
-    @Override
-    public Predicate toPredicate(Root<Pergunta> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
-
-        List<Predicate> predicates = new ArrayList<>();
-
-        if (pergunta.getDescricao() != null && pergunta.getDisciplina().getNome() != null){
-            predicates.add(cb.like(root.get(pergunta.getDisciplina().getNome()), "%" + pergunta.getDisciplina().getNome() + "%"));
-        }
-
-        if (pergunta.getDescricao() != null){
-            predicates.add(cb.like(root.get(pergunta.getDescricao()), "%" + pergunta.getDescricao() + "%"));
-        }
-
-        return andTogether(predicates, cb);
-    }
-
-    private Predicate andTogether(List<Predicate> predicates, CriteriaBuilder cb){
-        return cb.and(predicates.toArray(new Predicate[0]));
+                return builder.like(root.get("titulo"), "%" + titulo + "%");
+            }
+        };
     }
 }

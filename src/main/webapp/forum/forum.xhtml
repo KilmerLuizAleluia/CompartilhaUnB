@@ -13,27 +13,36 @@
                     <h3 class="panel-title">Fórum</h3>
                 </div>
                 <div class="panel-body">
-                    <h:form>
-                        <ul class="nav nav-tabs nav-justified">
-                            <li class="active"><a href="#perguntas" data-toggle="tab" aria-expanded="true">Perguntas</a></li>
-                            <li><a href="#respostas" data-toggle="tab" aria-expanded="false">Respostas</a></li>
-                        </ul>
-                        <div id="myTabContent" class="tab-content" >
-                            <div class="tab-pane fade active in" id="perguntas">
-
-                                <h:panelGrid columns="4" styleClass="form-group form-perguntas">
-                                    <h:inputText id="pesquisarDisciplina" converter="#{disciplinaConverter}" styleClass="form-control" value="#{perguntaBean.pergunta.disciplina}" p:placeholder="Localizar pergunta por disciplina"/>
-                                    <h:commandLink value="" styleClass="btn btn-default" action="#{perguntaBean.pesquisar}" >
-                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                                    </h:commandLink>
-                                    <h:inputText id="pesquisarDescricao" styleClass="form-control" value="#{perguntaBean.pergunta.descricao}" p:placeholder="Localizar pergunta por descrição"/>
-                                    <h:commandLink value="" styleClass="btn btn-default" action="#{perguntaBean.pesquisar}" >
-                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                    <ul class="nav nav-tabs nav-justified">
+                        <li class="active"><a href="#perguntas" data-toggle="tab" aria-expanded="true">Perguntas</a>
+                        </li>
+                        <li><a href="#respostas" data-toggle="tab" aria-expanded="false">Respostas</a></li>
+                    </ul>
+                    <div id="myTabContent" class="tab-content">
+                        <div class="tab-pane fade active in" id="perguntas">
+                            <h:form>
+                                <h:panelGrid columns="5" styleClass="form-group form-perguntas">
+                                    <h:inputText id="pesquisarDisciplina"
+                                                 styleClass="form-control" value="#{perguntaBean.pergunta.disciplina.nome}"
+                                                 p:placeholder="Localizar pergunta por disciplina"/>
+                                    <h:column/>
+                                    <h:inputText id="pesquisarDescricao" styleClass="form-control"
+                                                 value="#{perguntaBean.pergunta.titulo}"
+                                                 p:placeholder="Localizar pergunta por descrição"/>
+                                    <br/>
+                                    <h:commandLink value="" styleClass="btn btn-default"
+                                                   action="#{perguntaBean.pesquisar}">
+                                        <span class="glyphicon glyphicon-search" aria-hidden="true">
+                                            Pesquisar
+                                        </span>
                                     </h:commandLink>
                                 </h:panelGrid>
 
-                                <h:commandLink type="button" class="btn btn-primary btn-adicionar" aria-label="Left Align" action="#{perguntaBean.getAddPerguntaPage()}">
-                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Adicionar Pergunta
+                                <h:commandLink type="button" class="btn btn-primary btn-adicionar"
+                                               aria-label="Left Align"
+                                               action="#{perguntaBean.getAddPerguntaPage()}">
+                                        <span class="glyphicon glyphicon-plus"
+                                              aria-hidden="true"></span> Adicionar Pergunta
                                 </h:commandLink>
 
                                 <h:panelGrid columns="3" styleClass="form-group form-cadastro">
@@ -46,9 +55,12 @@
                                         <h:column>
                                             <f:facet name="header">Avaliação</f:facet>
                                             <div class="votar">
-                                                <h:commandLink><span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span></h:commandLink>
-                                                <input type="button" class="btn btn-primary btn-xs" value="#{pergunta.numeroLikes - pergunta.numeroDeslikes}" />
-                                                <h:commandLink><span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></h:commandLink>
+                                                <h:commandLink><span class="glyphicon glyphicon-chevron-up"
+                                                                     aria-hidden="true"></span></h:commandLink>
+                                                <input type="button" class="btn btn-primary btn-xs"
+                                                       value="#{pergunta.numeroLikes - pergunta.numeroDeslikes}"/>
+                                                <h:commandLink><span class="glyphicon glyphicon-chevron-down"
+                                                                     aria-hidden="true"></span></h:commandLink>
                                             </div>
                                         </h:column>
 
@@ -57,59 +69,74 @@
                                             <h:commandLink value="#{pergunta.titulo}"></h:commandLink>
                                         </h:column>
 
-                                        <h:column >
+                                        <h:column>
                                             <f:facet name="header">Pergunta</f:facet>
-                                            <h:inputTextarea id="descricao" styleClass="form-control" readonly="True" rows="2" value="#{pergunta.descricao}"></h:inputTextarea>
+                                            <h:inputTextarea id="descricao" styleClass="form-control"
+                                                             readonly="true" rows="2"
+                                                             value="#{pergunta.descricao}"></h:inputTextarea>
                                         </h:column>
 
                                         <h:column>
-                                            <h:commandButton value="Responder" styleClass="btn btn-success btn-responder"/>
+                                            <h:commandButton value="Responder"
+                                                             styleClass="btn btn-success btn-responder"/>
                                         </h:column>
 
                                     </h:dataTable>
 
                                 </h:panelGrid>
-                            </div>
+                            </h:form>
+                        </div>
 
-                            <div class="tab-pane" id="respostas">
+                        <div class="tab-pane" id="respostas">
+                            <h:form>
                                 <h:panelGrid columns="4" styleClass="form-group form-perguntas">
-                                    <h:inputText converter="#{disciplinaConverter}" styleClass="form-control" value="#{perguntaBean.pergunta.disciplina}" p:placeholder="Localizar resposta por disciplina"/>
-                                    <h:commandLink value="" styleClass="btn btn-default" action="#{perguntaBean.pesquisar}" >
+                                    <h:inputText converter="#{disciplinaConverter}" styleClass="form-control"
+                                                 value="#{perguntaBean.pergunta.disciplina}"
+                                                 p:placeholder="Localizar resposta por disciplina"/>
+                                    <h:commandLink value="" styleClass="btn btn-default"
+                                                   action="#{perguntaBean.pesquisar}">
                                         <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                                     </h:commandLink>
-                                    <h:inputText styleClass="form-control" value="#{perguntaBean.pergunta.descricao}" p:placeholder="Localizar resposta por descrição"/>
-                                    <h:commandLink value="" styleClass="btn btn-default" action="#{perguntaBean.pesquisar}" >
+                                    <h:inputText styleClass="form-control" value="#{perguntaBean.pergunta.descricao}"
+                                                 p:placeholder="Localizar resposta por descrição"/>
+                                    <h:commandLink value="" styleClass="btn btn-default"
+                                                   action="#{perguntaBean.pesquisar}">
                                         <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                                     </h:commandLink>
                                 </h:panelGrid>
 
                                 <h:panelGrid columns="2" styleClass="form-group">
                                     <h:dataTable styleClass="table table-hover table-bordered"
-                                                  var="resposta">
+                                                 var="resposta">
 
                                         <h:column>
                                             <f:facet name="header">Avaliação</f:facet>
                                             <div class="votar-respostas">
-                                                <h:commandLink><span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span></h:commandLink>
-                                                <input type="button" class="btn btn-primary btn-xs" value="0" />
-                                                <h:commandLink><span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></h:commandLink>
+                                                <h:commandLink><span class="glyphicon glyphicon-chevron-up"
+                                                                     aria-hidden="true"></span></h:commandLink>
+                                                <input type="button" class="btn btn-primary btn-xs" value="0"/>
+                                                <h:commandLink><span class="glyphicon glyphicon-chevron-down"
+                                                                     aria-hidden="true"></span></h:commandLink>
                                             </div>
                                         </h:column>
                                         <h:column>
                                             <f:facet name="header">Resposta</f:facet>
-                                            <h:inputTextarea styleClass="form-control" readonly="True" value="#"></h:inputTextarea>
+                                            <h:inputTextarea styleClass="form-control" readonly="true"
+                                                             value="#"></h:inputTextarea>
                                         </h:column>
 
                                     </h:dataTable>
                                 </h:panelGrid>
-                            </div>
-
-                            <h:commandLink type="button" class="btn btn-primary btn-adicionar" aria-label="Left Align" action="#{usuarioBean.getWelcomePage()}">
-                                <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span> Voltar para a tela inicial
-                            </h:commandLink>
-
+                            </h:form>
                         </div>
-                    </h:form>
+                        <h:form>
+                            <h:commandLink type="button" class="btn btn-primary btn-adicionar" aria-label="Left Align"
+                                           action="#{usuarioBean.getWelcomePage()}">
+                                <span class="glyphicon glyphicon-menu-left"
+                                      aria-hidden="true"></span> Voltar para a tela inicial
+                            </h:commandLink>
+                        </h:form>
+                    </div>
                 </div>
             </div>
         </div>

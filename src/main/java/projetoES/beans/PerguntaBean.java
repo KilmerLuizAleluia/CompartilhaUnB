@@ -3,6 +3,7 @@ package projetoES.beans;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Scope;
+import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import projetoES.model.entities.Disciplina;
@@ -35,7 +36,8 @@ public class PerguntaBean {
     @PostConstruct
     private void inicializarDados() {
         pergunta = new Pergunta();
-        listaPerguntas = pesquisar();
+        pergunta.setDisciplina(new Disciplina());
+        listaPerguntas = perguntaRepository.findAll();
         disciplinaId = null;
     }
 
@@ -69,12 +71,19 @@ public class PerguntaBean {
     }
 
     public List<Pergunta> pesquisar() {
-        PerguntaSpecification perguntaSpecification = new PerguntaSpecification(pergunta);
-        listaPerguntas = perguntaRepository.findAll(perguntaSpecification);
+
+//        Example<Pergunta> example = Example.of(pergunta);
+//        listaPerguntas = perguntaRepository.findAll(example);
+
+        PerguntaSpecification specification = new PerguntaSpecification();
+
+        listaPerguntas = perguntaRepository.findAll(specification.perguntaFilter(pergunta.getTitulo()));
 
         if (listaPerguntas.size() > 5) {
             listaPerguntas = listaPerguntas.subList(0, 5);
         }
+
+        pergunta = new Pergunta();
 
         return listaPerguntas;
     }
