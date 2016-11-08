@@ -87,7 +87,7 @@
 
                         <div class="tab-pane" id="respostas">
                             <h:form>
-                                <h:panelGrid columns="5" styleClass="form-group form-cadastro">
+                                <h:panelGrid columns="5" styleClass="form-group form-perguntas">
                                     <h:inputText id="pesquisarDisciplinaResposta"
                                                  styleClass="form-control"
                                                  p:placeholder="Localizar pergunta por disciplina"/>
@@ -102,14 +102,14 @@
                                     </h:commandLink>
                                 </h:panelGrid>
 
-                                <h:panelGrid columns="2" styleClass="form-group">
+                                <h:panelGrid columns="2" styleClass="form-group form-cadastro">
                                     <h:dataTable styleClass="table table-hover table-bordered"
                                                  rendered="#{ not empty perguntaBean.listaRespostas}"
                                                  value="#{perguntaBean.listaRespostas}" var="resposta">
 
                                         <h:column>
                                             <f:facet name="header">Avaliação</f:facet>
-                                            <div class="votar">
+                                            <div class="votar" style="width: 10%;">
                                                 <h:commandLink><span class="glyphicon glyphicon-chevron-up"
                                                                      aria-hidden="true"></span></h:commandLink>
                                                 <input type="button" class="btn btn-primary btn-xs"
