@@ -27,16 +27,13 @@
                                                  p:placeholder="Localizar pergunta por disciplina"/>
                                     <h:column/>
                                     <h:inputText id="pesquisarDescricao" styleClass="form-control"
-                                                 value="#{perguntaBean.pergunta.titulo}"
-                                                 p:placeholder="Localizar pergunta por descrição"/>
+                                                 p:placeholder="Localizar pergunta por título"/>
                                     <br/>
                                     <h:commandLink styleClass="btn btn-default"
                                                    action="#{perguntaBean.pesquisar}">
                                         <span class="glyphicon glyphicon-search" aria-hidden="true"/>
                                         Pesquisar
                                     </h:commandLink>
-
-
                                 </h:panelGrid>
 
                                 <h:commandLink type="button" class="btn btn-primary btn-adicionar"
@@ -78,7 +75,7 @@
                                         </h:column>
 
                                         <h:column>
-                                            <h:commandButton value="Responder"
+                                            <h:commandButton value="Responder" action="#{perguntaBean.responder(pergunta)}"
                                                              styleClass="btn btn-success btn-responder"/>
                                         </h:column>
 
@@ -90,19 +87,18 @@
 
                         <div class="tab-pane" id="respostas">
                             <h:form>
-                                <h:panelGrid columns="4" styleClass="form-group form-perguntas">
-                                    <h:inputText converter="#{disciplinaConverter}" styleClass="form-control"
-                                                 value="#{perguntaBean.pergunta.disciplina}"
-                                                 p:placeholder="Localizar resposta por disciplina"/>
-                                    <h:commandLink value="" styleClass="btn btn-default"
-                                                   action="#{perguntaBean.pesquisar}">
-                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                                    </h:commandLink>
-                                    <h:inputText styleClass="form-control" value="#{perguntaBean.pergunta.descricao}"
-                                                 p:placeholder="Localizar resposta por descrição"/>
-                                    <h:commandLink value="" styleClass="btn btn-default"
-                                                   action="#{perguntaBean.pesquisar}">
-                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                <h:panelGrid columns="5" styleClass="form-group form-perguntas">
+                                    <h:inputText id="pesquisarDisciplinaResposta"
+                                                 styleClass="form-control"
+                                                 p:placeholder="Localizar pergunta por disciplina"/>
+                                    <h:column/>
+                                    <h:inputText id="pesquisarDescricaoResposta" styleClass="form-control"
+                                                 p:placeholder="Localizar pergunta por descrição"/>
+                                    <br/>
+                                    <h:commandLink styleClass="btn btn-default"
+                                                   action="#{perguntaBean.pesquisarResposta}">
+                                        <span class="glyphicon glyphicon-search" aria-hidden="true"/>
+                                        Pesquisar
                                     </h:commandLink>
                                 </h:panelGrid>
 

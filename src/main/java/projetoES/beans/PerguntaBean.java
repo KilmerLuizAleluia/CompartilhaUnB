@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import projetoES.model.entities.Disciplina;
 import projetoES.model.entities.Pergunta;
+import projetoES.model.entities.Resposta;
 import projetoES.persistence.repositories.DisciplinaRepository;
 import projetoES.persistence.repositories.PerguntaRepository;
 import projetoES.persistence.specifications.PerguntaSpecification;
@@ -85,6 +86,13 @@ public class PerguntaBean {
             listaPerguntas = pesquisar();
         }
         return listaPerguntas;
+    }
+
+    public String responder(Pergunta pergunta){
+        RespostaBean rb = (RespostaBean) contexto.getBean("respostaBean");
+        rb.setPergunta(pergunta);
+        rb.setResposta(new Resposta());
+        return PageUtil.RESPOSTA_PAGE;
     }
 
     public void setListaPerguntas(List<Pergunta> listaPerguntas) {

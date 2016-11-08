@@ -19,10 +19,10 @@ public class Resposta {
     private Integer numeroLikes = 0;
     private Integer numeroDeslikes = 0;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne
     private Pergunta pergunta;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne
     private Usuario usuario;
 
     public Integer getId() {
