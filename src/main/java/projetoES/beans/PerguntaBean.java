@@ -72,16 +72,8 @@ public class PerguntaBean {
 
     public List<Pergunta> pesquisar() {
 
-//        Example<Pergunta> example = Example.of(pergunta);
-//        listaPerguntas = perguntaRepository.findAll(example);
-
         PerguntaSpecification specification = new PerguntaSpecification();
-
         listaPerguntas = perguntaRepository.findAll(specification.perguntaFilter(pergunta.getTitulo()));
-
-        if (listaPerguntas.size() > 5) {
-            listaPerguntas = listaPerguntas.subList(0, 5);
-        }
 
         pergunta = new Pergunta();
 
