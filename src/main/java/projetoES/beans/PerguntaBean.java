@@ -11,6 +11,7 @@ import projetoES.model.entities.Pergunta;
 import projetoES.model.entities.Resposta;
 import projetoES.persistence.repositories.DisciplinaRepository;
 import projetoES.persistence.repositories.PerguntaRepository;
+import projetoES.persistence.repositories.RespostaRepository;
 import projetoES.persistence.specifications.PerguntaSpecification;
 import projetoES.utils.PageUtil;
 
@@ -23,6 +24,9 @@ public class PerguntaBean {
 
     @Autowired
     private PerguntaRepository perguntaRepository;
+
+    @Autowired
+    private RespostaRepository respostaRepository;
 
     @Autowired
     private DisciplinaRepository disciplinaRepository;
@@ -53,7 +57,6 @@ public class PerguntaBean {
         inicializarDados();
         return PageUtil.FORUM_PAGE;
     }
-
 
     public List<Disciplina> getDisciplinas() {
         UsuarioBean bean = (UsuarioBean) contexto.getBean("usuarioBean");
@@ -86,6 +89,10 @@ public class PerguntaBean {
             listaPerguntas = pesquisar();
         }
         return listaPerguntas;
+    }
+
+    public List<Resposta> getListaRespostas(){
+        return respostaRepository.findAll();
     }
 
     public String responder(Pergunta pergunta){

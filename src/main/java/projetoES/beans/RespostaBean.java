@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 import projetoES.model.entities.Pergunta;
 import projetoES.model.entities.Resposta;
 import projetoES.persistence.repositories.RespostaRepository;
+import projetoES.utils.PageUtil;
 
 import javax.persistence.Transient;
 
@@ -29,12 +30,13 @@ public class RespostaBean {
     }
 
     @Transactional
-    public void salvarResposta(){
+    public String salvarResposta(){
         UsuarioBean bean = (UsuarioBean) contexto.getBean("usuarioBean");
         resposta.setUsuario(bean.getUsuario());
         resposta.setPergunta(pergunta);
         respostaRepository.save(resposta);
         resposta = new Resposta();
+        return PageUtil.FORUM_PAGE;
     }
 
     public void setResposta(Resposta resposta) {
