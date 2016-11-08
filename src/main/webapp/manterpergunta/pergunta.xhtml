@@ -15,13 +15,11 @@
                     <h:form>
                         <h:panelGrid columns="1" styleClass="form-group form-cadastro">
                             <div class="form-pergunta">
-                                <h:outputText value="Titulo da pergunta: "/>
-                                <h:inputText styleClass="form-control" readonly="True" value="#{perguntaBean.pergunta.titulo}"/>
+                                <h:inputText styleClass="form-control" readonly="true" value="#{perguntaBean.pergunta.titulo}"/>
+                                <br/>
                             </div>
                             <div class="form-pergunta">
-
-                                <h:outputText value="Pergunta: "/>
-                                <h:inputTextarea styleClass="form-control" rows="5" readonly="True" value="#{perguntaBean.pergunta.descricao}"></h:inputTextarea>
+                                <h:inputTextarea styleClass="form-control" rows="5" readonly="true" value="#{perguntaBean.pergunta.descricao}"></h:inputTextarea>
                             </div>
 
                             <div class="form-pergunta">

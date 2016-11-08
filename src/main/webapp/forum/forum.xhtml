@@ -64,7 +64,7 @@
 
                                         <h:column>
                                             <f:facet name="header">Título</f:facet>
-                                            <h:commandLink value="#{pergunta.titulo}"></h:commandLink>
+                                            <h:commandLink action="#{perguntaBean.visualizarPergunta(pergunta)}" value="#{pergunta.titulo}"></h:commandLink>
                                         </h:column>
 
                                         <h:column>

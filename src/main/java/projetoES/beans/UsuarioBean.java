@@ -1,6 +1,7 @@
 package projetoES.beans;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import projetoES.model.entities.Disciplina;
@@ -18,6 +19,9 @@ public class UsuarioBean {
 
     @Autowired
     private UsuarioRepository usuarioRepository;
+
+    @Autowired
+    private ApplicationContext contexto;
 
     private Usuario usuario;
     private Disciplina disciplina;
@@ -87,6 +91,8 @@ public class UsuarioBean {
     }
 
     public String getMateriaisPage() {
+        PerguntaBean bean = (PerguntaBean) contexto.getBean("perguntaBean");
+        bean.inicializarDados();
         return PageUtil.MATERIAIS_PAGE;
     }
 

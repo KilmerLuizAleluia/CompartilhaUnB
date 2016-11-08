@@ -39,7 +39,7 @@ public class PerguntaBean {
     private Integer disciplinaId;
 
     @PostConstruct
-    private void inicializarDados() {
+    public void inicializarDados() {
         pergunta = new Pergunta();
         pergunta.setDisciplina(new Disciplina());
         listaPerguntas = perguntaRepository.findAll();
@@ -100,6 +100,12 @@ public class PerguntaBean {
         rb.setPergunta(pergunta);
         rb.setResposta(new Resposta());
         return PageUtil.RESPOSTA_PAGE;
+    }
+
+    public String visualizarPergunta(Pergunta pergunta){
+        this.pergunta = pergunta;
+
+        return PageUtil.VISUALIZAR_PERGUNTA_PAGE;
     }
 
     public void setListaPerguntas(List<Pergunta> listaPerguntas) {
