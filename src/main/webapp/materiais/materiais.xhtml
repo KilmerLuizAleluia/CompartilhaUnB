@@ -31,13 +31,13 @@
                                 <span class="vote-count-post">6</span>
                                 <a><span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></a>
                             </div>
-                            <h:inputTextarea styleClass="form-control" readonly="True" value="#{perguntaBean.pergunta.descricao}"></h:inputTextarea>
+                            <h:inputTextarea styleClass="form-control" readonly="true" value="#{perguntaBean.pergunta.descricao}"></h:inputTextarea>
                             <h:commandLink value="" styleClass="btn btn-primary btn-download" action="#{perguntaBean.pesquisar}" >
                                 <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
                             </h:commandLink>
                         </h:panelGrid>
 
-                        <h:commandLink type="button" class="btn btn-primary btn-adicionar" aria-label="Left Align" action="#{usuarioBean.getWelcomePage()}">
+                        <h:commandLink type="button" class="btn btn-primary btn-adicionar" aria-label="Left Align" immediate="true" action="#{usuarioBean.getWelcomePage()}">
                             <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span> Voltar para o fórum
                         </h:commandLink>
 
